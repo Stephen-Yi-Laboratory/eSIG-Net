@@ -112,32 +112,6 @@ python main.py --config_fname config_train.yaml --save_model --save_results --md
 
 The model will automatically train on all folds specified by `k_fold` in the config file.
 
-#### Training with Hyperparameter Override
-
-Override specific hyperparameters:
-
-```bash
-python main.py --config_fname config_train.yaml \
-  --overwrite \
-  --lr_init 0.003 \
-  --dropout_p 0.3 \
-  --seed 42 \
-  --save_model --save_results \
-  --mdl_dpath tmp_results/exp01
-```
-
-#### Training with Optuna (Hyperparameter Optimization)
-
-Optimize hyperparameters using Optuna:
-
-```bash
-python main.py --config_fname config_train.yaml \
-  --use_optuna \
-  --optuna_name sdnn_optimization \
-  --optuna_trials 100 \
-  --optuna_save
-```
-
 ### Evaluation
 
 Evaluate a trained model:
@@ -168,7 +142,6 @@ Note: The script includes GLIBC path configurations that may need adjustment for
 ### Training Outputs
 
 - **Model checkpoints**: Saved in `mdl_dpath` directory as `model_pred_opt_fold_{fold}.pth`
-- **Log files**: Training logs saved to path specified in config or `log_fpath`
 - **Results CSV**: Contains training metrics and predictions (if `save_results=True`)
 
 ### Evaluation Outputs
